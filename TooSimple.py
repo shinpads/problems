@@ -1,0 +1,38 @@
+import string
+def Hello():
+    pass
+def World():
+    pass
+punc = string.punctuation
+comma = list(punc)
+ex = list(punc)
+ex.reverse()
+ex = ex.pop()
+comma.pop()
+comma.pop()
+comma.pop()
+comma.pop()
+comma.pop()
+comma.pop()
+comma.pop()
+comma.pop()
+comma.pop()
+comma.pop()
+comma.pop()
+comma.pop()
+comma.pop()
+comma.pop()
+comma.reverse()
+comma.pop()
+comma.pop()
+comma.pop()
+comma.pop()
+comma.pop()
+comma.pop()
+comma.pop()
+comma.pop()
+comma.pop()
+comma.pop()
+comma.pop()
+comma = comma.pop()
+print(Hello.__name__+comma ,World.__name__+ex)
