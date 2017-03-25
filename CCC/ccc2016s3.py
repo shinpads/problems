@@ -1,47 +1,20 @@
 import sys
-from math import floor
 input = sys.stdin.readline
 n = int(input())
-lens = input().split()
-lens = [int(x) for x in lens]
+lengths = [0 for i in range(2002)]
+total = [0 for i in range(4004)]
+nums = list(map(int,input().split()))
+for x in nums:
+    lengths[x] +=1
 
-maxCount = 0
-nbig = 0
-lens.sort()
-
-allsums = set([])
-a = 0
-b = n-1
-count = 0
-for x in range(n):
-    for y in range(x+1,n):
-        allsums.add(lens[x]+lens[y])
-for trySum in allsums:
-    a = 0
-    b = n-1
-    count = 0
-    while(a<b):        
-        sum = lens[a]+lens[b]        
-        if sum == trySum:
-            count+=1
-            a+=1
-            b-=1
-        else:
-            if sum < trySum:
-                a+=1
-                while lens[a] == lens[a-1]:
-                    a+=1
+for x in range(len(lengths)):
+    if lengths[x] > 0:
+        for y in range(x,len(lengths)):
+            if x == y:
+                if lengths[x] > 1:
+                    total[x+y] += int(lengths[x]/2)
             else:
-                b-=1
-                while lens[b] == lens[b+1]:
-                    b-=1
-    #print(trySum,count)
-    if count>maxCount:
-        nbig = 1
-        maxCount= count
-        if count == floor(n/2):
-            break
-    elif count == maxCount:
-        nbig+=1
-        
-print(maxCount,nbig)
+                total[x+y] += min(lengths[x],lengths[y])
+
+a = max(total)
+print(a,total.count(a))
