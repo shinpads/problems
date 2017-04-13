@@ -1,19 +1,15 @@
+from collections import defaultdict
+import sys
+input = sys.stdin.readline
 dict  = {}
+dict = defaultdict(lambda:0,dict)
 n = int(input())
 done = False
-for i in range(n):
+for i in range((n*2)-1):
     x = input()
-    if x in dict.keys():
-        dict[x] += 1        
-    else:
-        dict[x] = 1
+    dict[x] += 1        
 
-for i in range(n-1):
-    x = input()
-    if not done:
-        dict[x]-=1
-        if dict[x] == 0:
-            del[dict[x]]
-        
-for x in dict.keys():
-    print(x)
+for i in dict.keys():
+    if dict[i]%2 ==1:
+        print(i)
+        break
