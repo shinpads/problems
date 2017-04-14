@@ -9,7 +9,7 @@ for i in range(1,n):
         v[-1] += 1
     else:
         v.append(1)
-print(v)
+
 t = 0
 for y in v:
     t += int(y*(y+1)/2)
