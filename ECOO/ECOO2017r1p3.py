@@ -9,7 +9,6 @@ for _ in range(10):
     for x in range(n-1):
         cutoff = -999999
         for y in range(x+1,n):
-            #slope = rise/run
             m = (h[y] - h[i])/(y-x)
             if m > cutoff:
                 v[i] += 1
