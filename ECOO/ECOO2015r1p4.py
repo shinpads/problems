@@ -4,12 +4,9 @@ for _ in range(10):
     v = {}
     def find(x):    
         if x in v.keys():
-            return v[x]
-        
+            return v[x]        
         if x == "":
-            return 1
-        
-        
+            return 1         
         tot = 0
         for i in range(2,len(x)+1):        
             if x[:i] in p:
@@ -17,6 +14,5 @@ for _ in range(10):
                 a = find(aa)
                 v[aa] = a
                 tot += a
-        return tot
-    
+        return tot    
     print(find(n))
