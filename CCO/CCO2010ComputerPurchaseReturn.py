@@ -26,7 +26,7 @@ def findmax(typ,money):
         for i in parts[1]:
             if money - i[0] >= 0:
                 return i[1]
-                print(i)               
+              
 
         return -1
 
