@@ -1,3 +1,4 @@
+import sys; input = sys.stdin.readline
 n = int(input())
 x,y,z = map(int,input().split())
 bars = [x,y,z]
@@ -9,5 +10,5 @@ for i in range(n-1,-1,-1):
         if i+t > n: break
         if dp[i+t] != -1:
             dp[i] = max(dp[i+t]+1,dp[i])
-print(dp)          
+        
 print(dp[0])
