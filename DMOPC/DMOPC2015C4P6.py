@@ -14,14 +14,16 @@ for i in range(a):
     rads[i] -= 1
 rads += [-1 for i in range(n-a)]
 maxvalue = 0
+its = 0
 for poss in itertools.permutations(range(n)):
     for ranges in itertools.permutations(rads):
+        its += 1
         cval = 0
         wallc = deepcopy(walls)
         for i in range(n):
             cpos = poss[i]
             crange = ranges[i]
-            if crange == -1: print(i,cpos,-1,cval);continue
+            if crange == -1:continue
             if walls[cpos][i] == 0: cval = 0; break
             if cpos - crange < 0 or cpos + crange >= n or i - crange < 0 or i + crange >= n:
                 cval = 0; break;
@@ -38,6 +40,6 @@ for poss in itertools.permutations(range(n)):
         maxvalue = max(maxvalue,cval)
 
 
-
+print(its)
 print(maxvalue)
                 
