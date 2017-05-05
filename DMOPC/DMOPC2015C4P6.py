@@ -1,5 +1,4 @@
 import itertools 
-from copy import deepcopy
 import sys
 input = sys.stdin.readline
 n = int(input())
@@ -19,7 +18,7 @@ for poss in itertools.permutations(range(n)):
     for ranges in itertools.permutations(rads):
         its += 1
         cval = 0
-        wallc = deepcopy(walls)
+        vis = [[False for i in range(n)]for i in range(n)]
         for i in range(n):
             cpos = poss[i]
             crange = ranges[i]
@@ -27,19 +26,24 @@ for poss in itertools.permutations(range(n)):
             if walls[cpos][i] == 0: cval = 0; break
             if cpos - crange < 0 or cpos + crange >= n or i - crange < 0 or i + crange >= n:
                 cval = 0; break;
-            else:
-                if crange == 0:                    
-                    cval += wallc[cpos][i]
-                    wallc[cpos][i] = 0
+        else:
+            for i in range(n):
+                cpos = poss[i]
+                crange = ranges[i]
+                if crange == 0:
+                    if not vis[cpos][i]:                    
+                        cval += walls[cpos][i]
+                        vis[cpos][i] = True
                 else:
                     for y in range(cpos - crange, cpos + crange+1):
-                        cval += sum(wallc[y][i-crange:i+crange+1])
                         for xx in range(i-crange,i+crange+1):
-                            wallc[y][xx] = 0
+                            if not vis[y][xx]:
+                                cval += walls[y][xx]
+                                vis[y][xx] = True
 
         maxvalue = max(maxvalue,cval)
 
 
-print(its)
+
 print(maxvalue)
                 
