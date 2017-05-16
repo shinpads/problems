@@ -54,13 +54,12 @@ for x in wins:
 
 
     count+=1
-done = set()
+
 
 if indzero: ans[0].reverse()
 for x in ans:
     a = [x[1] , x[0]]
-    if not tuple(a) in done:
-        print(' '.join(a))
-        #done.add(tuple(a))      
+    print(' '.join(a))
+    
         
         
