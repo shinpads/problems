@@ -1,5 +1,6 @@
+import sys
+input = sys.stdin.readline
 i = 1
-
 while True:
     vals = list(map(int,input().split()))[1:]
     if vals == []: break
