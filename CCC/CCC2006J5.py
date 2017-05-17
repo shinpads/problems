@@ -1,7 +1,6 @@
 """
 M-Word = A-word, 'N', A-Word
 A-Word = 'A' or 'B', M-Word, 'S'
-
 """
 word = input()
 
