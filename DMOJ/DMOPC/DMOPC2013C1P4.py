@@ -15,7 +15,7 @@ for _ in range(t):
     q = [start]
     while len(q) > 0:
         x,y,d = q.pop(0)
-        if d == 61: continue
+        if d == 59: continue
         for tx,ty in [(x+1,y),(x-1,y),(x,y+1),(x,y-1)]:
             if tx < l and tx>=0 and ty<w and ty>= 0:
                 if not graph[ty][tx] == 'X':
