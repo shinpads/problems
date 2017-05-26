@@ -4,13 +4,20 @@
  *  Created on: May 26, 2017
  *      Author: Rob
  */
-
-
 /*
  *
- * basic recursion
+ * basic recursion solution
+ *
  * all you need to do:
  *  1) store all connections between patches
+ *  2) staring at 1 (because we know this is the trunk/root of the tree), equate the cherries for that
+ *  branch equal to the cherries of all connections (if those connections havent been visited before)
+ *  do the same thing for weight
+ *  before you return answer for a branch, check if cherries are >= c and weight <= k, if so, add one to
+ *  counter of unique cuts
+ *
+ *  make sure you dont add one to the counter for the 1st branch because, as specified in the question,
+ *  you cannot cut the trunk.
  *
  */
 #include<iostream>
